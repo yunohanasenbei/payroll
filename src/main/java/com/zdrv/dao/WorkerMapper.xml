@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdrv.dao.WorkerDao">
+
+	<resultMap type="com.zdrv.domain.WorkerInfo"
+		id="workerInfoResult">
+		<id property="workerClass" column="worker_class" />
+		<result property="className" column="worker_class" />
+		<association property="workerInfo" resultMap="workerClassResult" />
+	</resultMap>
+
+	<resultMap type="com.zdrv.domain.WorkerInfo"
+		id="workerClassResult">
+		<id property="workerClass" column="worker_class" />
+		<result property="className" column="class_name" />
+	</resultMap>
+
+	<select id="findAll" resultType="com.zdrv.domain.WorkerInfo">
+		select
+		worker_info.company_id,
+		worker_info.worker_id,
+		worker_info.name,
+		worker_info.worker_class,
+		worker_info.wage_h,
+		worker_info.basic_working_h,
+		worker_info.basic_break,
+		worker_info.travel_cost,
+		worker_info.travel_cost_month,
+		worker_info.admin,
+		worker_class.class_name from worker_info
+		join worker_class on
+		worker_info.worker_class = worker_class.worker_class
+		;
+	</select>
+
+	<select id="findById" resultType="com.zdrv.domain.WorkerInfo">
+		select
+		worker_info.company_id,
+		worker_info.worker_id,
+		worker_info.name,
+		worker_info.worker_class,
+		worker_info.wage_h,
+		worker_info.basic_working_h,
+		worker_info.basic_break,
+		worker_info.travel_cost,
+		worker_info.travel_cost_month,
+		worker_info.admin,
+		worker_class.class_name from worker_info
+		join worker_class on worker_info.worker_class = worker_class.worker_class
+		where
+		worker_id = #{workerId};
+	</select>
+
+	<insert id="insert" parameterType="com.zdrv.domain.WorkerInfo"
+		useGeneratedKeys="true" keyProperty="workerId">
+		insert into worker_info
+		values(
+		#{companyId},
+		null,
+		#{name},
+		#{workerClass},
+		#{wageh},
+		#{basicWorkingh},
+		#{basicBreak},
+		#{travelCost},
+		#{travelCostMonth},
+		#{admin}
+		);
+
+	</insert>
+
+	<update id="update">
+		UPDATE company_list set
+		company_name = #{companyName},
+		paid_leave_calculation_id = #{paid_leave_calculation_id},
+		company_icon
+		= #{companyIcon}
+		where company_id = #{companyId};
+	</update>
+</mapper>

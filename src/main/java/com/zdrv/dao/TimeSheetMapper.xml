@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdrv.dao.TimeSheetDao">
+
+	<select id="selectByworkerId" resultType="com.zdrv.domain.TimeSheet">
+	SELECT * FROM payroll.timesheet
+	where worker_id = #{workerId};
+	</select>
+
+	<select id="selectByworkerIdOfMonth" resultType="com.zdrv.domain.TimeSheet">
+	SELECT * FROM payroll.timesheet
+	where worker_id = #{workerId};
+	</select>
+
+
+</mapper>

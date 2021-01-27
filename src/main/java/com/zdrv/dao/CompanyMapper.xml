@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdrv.dao.CompanyDao">
+
+	<select id="findById" resultType="com.zdrv.domain.Company">
+		select * from company_list
+		where company_id = #{companyId};
+	</select>
+
+	<insert id="insert" parameterType="com.zdrv.domain.Company"
+		useGeneratedKeys="true">
+		insert into company_list (company_name,
+		paid_leave_calculation_id, company_icon)
+		values(#{companyName}",#{paid_leave_calculation_id}, #{companyIcon});
+	</insert>
+
+	<update id="update">
+		UPDATE company_list set
+		company_name = #{companyName},
+		paid_leave_calculation_id = #{paid_leave_calculation_id},
+		company_icon = #{companyIcon}
+		where company_id = #{companyId};
+	</update>
+</mapper>

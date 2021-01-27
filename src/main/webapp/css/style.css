@@ -1,0 +1,39 @@
+.nowrap{
+    white-space: nowrap;
+}
+
+thead {
+    background-color: azure;
+    }
+
+input.form-control{
+    width: 150px;
+}
+
+
+/* ファイルアップロード枠 --------------------------*/
+.custom-file {
+    max-width: 20rem;
+    overflow: hidden;
+}
+.custom-file-label {
+    white-space: nowrap;
+}
+/* ファイルアップロード枠 --------------------------*/
+
+/*テーブル‗縦スクロール時にヘッダー行固定*/
+
+.sticky_table thead th {
+  /* 縦スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /* tbody内のセルより手前に表示する */
+  z-index: 1;
+}
+
+input[type="submit"][disabled]{
+    background:#DCDCDC;
+    border-color:#DCDCDC;
+    cursor:not-allowed; /* 禁止カーソル */
+}
