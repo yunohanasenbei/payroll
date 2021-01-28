@@ -66,6 +66,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
 		var dataSource = new ComboPooledDataSource();
 		dataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		dataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+
 		dataSource.setUser(env.getProperty("jdbc.user"));
 		dataSource.setPassword(env.getProperty("jdbc.password"));
 

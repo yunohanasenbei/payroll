@@ -50,6 +50,10 @@ public class LoginController {
 		session.setAttribute("admin", loginAdmin.getWorkerInfo().getAdmin());
 		System.out.println(admin);
 
+		if(loginAdmin.getWorkerInfo().getAdmin() == null) {
+			return "redirect:/timeSheet";
+		}
+
 		return "redirect:/index";
 
 	}

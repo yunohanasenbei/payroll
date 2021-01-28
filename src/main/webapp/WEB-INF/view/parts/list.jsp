@@ -5,6 +5,8 @@
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
+
+              <c:if test="${!empty admin}">
           <li class="nav-item">
             <a class="nav-link active" href="index">
               <span data-feather="home"></span>
@@ -12,7 +14,6 @@
               出勤状況 <span class="sr-only">(現在位置)</span>
             </a>
           </li>
-              <c:if test="${!empty admin}">
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="calendar"></span>
@@ -21,6 +22,7 @@
             </a>
           </li>
           </c:if>
+
           <li class="nav-item">
             <a class="nav-link" href="timeSheet<c:out value="${workerId}" />">
               <span data-feather="users"></span>
@@ -59,7 +61,7 @@
           </li>
           </c:if>
         </ul>
-
+		 <c:if test="${!empty admin}">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <!-- <span>Saved reports</span> -->
           <span>CSVアップロード</span>
@@ -83,5 +85,6 @@
             </a>
           </li>
         </ul>
+        </c:if>
       </div>
     </nav>
