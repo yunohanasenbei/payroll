@@ -51,7 +51,7 @@
 					従業員：自分の登録済みの勤怠情報、給与設定、payrollを確認することができます。</p>
 				<br>
 				<h3>サイトマップ</h3>
-				<table class="table table-bordered text-center align-middle">
+				<table class="table  text-center align-middle">
 					<tr class="table-info">
 						<th>ページ</th>
 						<th>ページ内容</th>

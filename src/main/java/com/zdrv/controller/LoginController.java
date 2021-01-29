@@ -41,17 +41,20 @@ public class LoginController {
 		}
 
 		Admin loginAdmin = service.getAdminByLoginId(admin.getLoginId());
+		System.out.println("2回目");
+		System.out.println(loginAdmin);
 
 		// 正しいログインIDとパスワード
 		// ⇒ セッションにログインIDを格納し、リダイレクト
 		session.setAttribute("loginId", loginAdmin.getLoginId());
 		session.setAttribute("companyId", loginAdmin.getWorkerInfo().getCompanyId());
-		session.setAttribute("workerId", loginAdmin.getWorkerInfo().getWorkerId());
+		session.setAttribute("workerId", loginAdmin.getWorkerId());
 		session.setAttribute("admin", loginAdmin.getWorkerInfo().getAdmin());
-		System.out.println(admin);
+		System.out.println(loginAdmin.getWorkerInfo().getAdmin());
 
 		if(loginAdmin.getWorkerInfo().getAdmin() == null) {
-			return "redirect:/timeSheet";
+			System.out.println("/timeSheet" + loginAdmin.getWorkerId());
+			return "redirect:/timeSheet" + loginAdmin.getWorkerId();
 		}
 
 		return "redirect:/index";

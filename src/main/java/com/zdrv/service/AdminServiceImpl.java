@@ -17,6 +17,7 @@ public class AdminServiceImpl implements AdminService{
 	public boolean isCorrectIdAndPassword(String loginId, String loginPass) throws Exception {
 
 		Admin admin = dao.selectByLoginId(loginId);
+		System.out.println(admin);
 
 		//ログインIDが正しいかチェック
 		if(admin == null) {
@@ -34,6 +35,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public Admin getAdminByLoginId(String loginId) throws Exception {
 
+		
 		return dao.selectByLoginId(loginId);
 	}
 

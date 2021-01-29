@@ -10,4 +10,9 @@ public class IndexColtroller {
 	public String index() {
 		return "index";
 	}
+
+	@GetMapping("/about")
+	public String getAbout() {
+		return "about";
+	}
 }
